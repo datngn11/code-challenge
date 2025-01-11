@@ -132,12 +132,11 @@ export const ConvertForm = ({ setIsCompleted }: IProps) => {
         className="flex flex-col gap-12"
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        <div className="flex items-center gap-8">
+        <div className="flex flex-col gap-8">
           <div className="flex items-center gap-4">
             <NumberField
               control={control}
               name="from"
-              placeholder="From"
               inputProps={{
                 disabled: loadingCurrencies,
                 onFocus: () => setActiveField("from"),
@@ -152,12 +151,13 @@ export const ConvertForm = ({ setIsCompleted }: IProps) => {
               disabled={loadingCurrencies}
             />
           </div>
-          <SwapButton onClick={handleSwap} />
+
+          <SwapButton onClick={handleSwap} className="mx-auto" />
+
           <div className="flex items-center gap-4">
             <NumberField
               control={form.control}
               name="to"
-              placeholder="To"
               inputProps={{
                 disabled: loadingCurrencies,
                 onFocus: () => setActiveField("to"),
@@ -175,7 +175,7 @@ export const ConvertForm = ({ setIsCompleted }: IProps) => {
         </div>
 
         <Button
-          className="w-[50%] self-center"
+          className="w-full self-center"
           size="lg"
           type="submit"
           disabled={loadingConvert}

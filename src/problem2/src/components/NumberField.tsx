@@ -29,7 +29,7 @@ export const NumberField = <T extends FieldValues>({
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className="w-full">
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
             <Input

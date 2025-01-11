@@ -8,7 +8,7 @@ export const Converter = () => {
 
   return (
     <>
-      <Card className="w-full max-w-4xl space-y-6 rounded-lg bg-white px-6 py-10 shadow-lg">
+      <Card className="w-full max-w-lg space-y-6 rounded-lg bg-white px-6 py-10 shadow-lg">
         {completed ? (
           <ConvertSuccess />
         ) : (
