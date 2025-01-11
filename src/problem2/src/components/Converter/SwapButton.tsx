@@ -1,15 +1,11 @@
-import { ArrowLeftRight } from "lucide-react";
+import { ArrowUpDown } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 
-interface IProps {
-  onClick: () => void;
-}
-
-export const SwapButton = ({ onClick }: IProps) => {
+export const SwapButton = (props: ButtonProps) => {
   return (
-    <Button type="button" variant="outline" size="icon" onClick={onClick}>
-      <ArrowLeftRight />
+    <Button type="button" variant="outline" size="icon" {...props}>
+      <ArrowUpDown />
     </Button>
   );
 };
