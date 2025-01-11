@@ -76,24 +76,31 @@ const WalletPage: React.FC<Props> = (props) => {
 
   const rows =
     //9. Use formattedBalances here
-    formattedBalances?.map(
-      (
-        //10. Destructure balance object to make it more readable
-        { blockchain, amount, currency, formatted }: FormattedWalletBalance
-      ) => {
-        const usdValue = prices[currency] * amount;
+    formattedBalances.length > 0 ? (
+      formattedBalances.map(
+        ({
+          blockchain,
+          amount,
+          currency,
+          formatted,
+        }: FormattedWalletBalance) => {
+          const usdValue = prices[currency] * amount;
 
-        return (
-          <WalletRow
-            //11. Use reliable and unique key instead of index
-            key={`${currency}_${blockchain}`}
-            className={classes.row}
-            amount={amount}
-            usdValue={usdValue}
-            formattedAmount={formatted}
-          />
-        );
-      }
+          return (
+            <WalletRow
+              //10. Use reliable and unique key instead of index
+              key={`${currency}_${blockchain}`}
+              className={classes.row}
+              amount={amount}
+              usdValue={usdValue}
+              formattedAmount={formatted}
+            />
+          );
+        }
+      )
+    ) : (
+      //11. Add default message when no balances are available
+      <div>No balances available</div>
     );
 
   return <div {...rest}>{rows}</div>;
